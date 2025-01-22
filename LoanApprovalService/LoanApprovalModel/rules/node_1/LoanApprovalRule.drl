@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>LoanApprovalRule</name>
+  <uuid>082f4859-eab6-457e-9724-5519876f18aa</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if
+	employmentYears is at least 2 
+	and monthlyIncome is at least 5000 
+	and outstandingDebts is false 
+then
+	set decision to "Approved";
+else 
+    set decision to "Rejected";]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>1d5f85aa-e416-4498-9694-8d0d63af190e</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="employmentYears">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Double" collection="false" name="employmentYears"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="employmentYears" typeRef="java.lang.Double"/>
+    </inputData>
+    <decision id="node_1" name="loanApprovalStatus">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.Double" collection="false" name="employmentYears"/>
+                <input bomType="java.lang.Double" collection="false" name="monthlyIncome"/>
+                <input bomType="java.lang.Boolean" collection="false" name="outstandingDebts"/>
+                <output bomType="java.lang.String" collection="false" name="loanApprovalStatus"/>
+                <rule defaultRule="false" href="node_1/LoanApprovalRule.drl" kind="BusinessRule" name="LoanApprovalRule"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="loanApprovalStatus" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_2" name="monthlyIncome">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Double" collection="false" name="monthlyIncome"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="monthlyIncome" typeRef="java.lang.Double"/>
+    </inputData>
+    <inputData id="node_3" name="outstandingDebts">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.Boolean" collection="false" name="outstandingDebts"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_3_ii" name="outstandingDebts" typeRef="java.lang.Boolean"/>
+    </inputData>
+</definitions>
+</definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>
